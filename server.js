@@ -1,5 +1,8 @@
 var express = require('express');
+var appdata = require('./data/appdata.js');
+
 var app = express();
+
 
 // set up handlebars view engine
 var handlebars = require('express-handlebars')
@@ -10,6 +13,12 @@ app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(__dirname + '/public'));
+
+app.use(function(req, res, next) {
+	if (!res.locals.partials) res.locals.partials = {};
+	res.locals.partials.menuContext = appdata.getNavMenu();
+	next();
+});
 
 app.get('/', function(req, res) {
 	res.render('home');
@@ -32,5 +41,5 @@ app.use(function(err, req, res, next) {
 
 app.listen(app.get('port'), function() {
   console.log('Express started on http://localhost:' +
-  app.get('post') + '; press Ctrl + C to terminate.');
+  app.get('port') + '; press Ctrl + C to terminate.');
 });
