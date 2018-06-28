@@ -28,6 +28,10 @@ app.get('/about', function(req,res){
 	res.render('about');
 });
 
+app.get('/settings', function(req,res){
+	res.render('settings');
+});
+
 app.use(function(req, res) {
 	res.status(404);
 	res.render('404');
