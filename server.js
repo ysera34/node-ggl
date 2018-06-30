@@ -1,11 +1,11 @@
-var express = require('express');
-var appdata = require('./data/appdata.js');
+const express = require('express');
+const appdata = require('./data/appdata.js');
 
-var app = express();
+const app = express();
 
 
 // set up handlebars view engine
-var handlebars = require('express-handlebars')
+const handlebars = require('express-handlebars')
 	.create({ defaultLayout:'main' });
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -32,6 +32,9 @@ app.get('/settings', function(req,res){
 	res.render('settings');
 });
 
+const routes = require('./api/routes/users');
+routes(app);
+
 app.use(function(req, res) {
 	res.status(404);
 	res.render('404');
@@ -43,7 +46,7 @@ app.use(function(err, req, res, next) {
 	res.render('500');
 });
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), () => {
   console.log('Express started on http://localhost:' +
   app.get('port') + '; press Ctrl + C to terminate.');
 });
