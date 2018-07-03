@@ -4,6 +4,10 @@ module.exports = {
 
   get: (req, res, next) => {
     console.log('users controller get');
+    const id = parseInt(req.params.id, 10);
+    if (!id) {
+      return res.status(400).json({error: 'Incorrect id'});
+    }
   },
   getAll: (req, res, next) => {
     console.log('users controller getAll');
