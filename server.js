@@ -23,17 +23,7 @@ app.use(function(req, res, next) {
 	next();
 });
 
-app.get('/', function(req, res) {
-	res.render('home');
-});
-
-app.get('/about', function(req,res){
-	res.render('about');
-});
-
-app.get('/settings', function(req,res){
-	res.render('settings');
-});
+app.use('/', require('./api/routes'));
 
 const routes = require('./api/routes/users');
 routes(app);
