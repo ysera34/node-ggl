@@ -9,5 +9,4 @@ module.exports = (app) => {
     .get(users.get)
     .put(users.update)
     .delete(users.remove);
-
 };

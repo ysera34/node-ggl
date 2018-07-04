@@ -1,8 +1,11 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const appdata = require('./data/appdata.js');
 
 const app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // set up handlebars view engine
 const handlebars = require('express-handlebars')
