@@ -16,6 +16,7 @@
     "sequelize": "^4.38.0"
   },
   "devDependencies": {
+    "mocha": "^5.2.0",
     "nodemon": "^1.17.5"
   }
 }
