@@ -1,4 +1,4 @@
-const appdata = require('../../data/appdata');
+const appdata = require('../data/appdata');
 
 module.exports = {
 
