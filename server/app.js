@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const path = require('path');
-// const appdata = require('./data/appdata.js');
+const appdata = require('./data/appdata.js');
 
 const app = express();
 
@@ -14,20 +14,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.engine('handlebars', exphbs({
-	layoutsDir: '../client/views',
-	defaultLayout:'../client/views/layout/main',
-	partialsDir: '../client/views/partials',
+	layoutsDir: 'client/views',
+	defaultLayout: 'layouts/main',
+	partialsDir: 'client/views/partials',
 }));
 app.set('view engine', 'handlebars');
 // app.set('views', path.join(__dirname, '../client/views'))
 
 app.use(express.static('client/public'));
 
-// app.use(function(req, res, next) {
-// 	if (!res.locals.partials) res.locals.partials = {};
-// 	res.locals.partials.menuContext = appdata.getNavMenu();
-// 	next();
-// });
+app.use(function(req, res, next) {
+	if (!res.locals.partials) res.locals.partials = {};
+	res.locals.partials.menuContext = appdata.getNavMenu();
+	next();
+});
 
 app.use('/', require('./routes'));
 

@@ -1,6 +1,6 @@
 
 exports.index = (req, res) => {
-	res.render('home');
+	res.render('../client/views/home');
 };
 
 exports.about = (req, res) => {
