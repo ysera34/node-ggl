@@ -12,14 +12,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // set up handlebars view engine
 
-
 app.engine('handlebars', exphbs({
-	layoutsDir: 'client/views',
-	defaultLayout: 'layouts/main',
+	defaultLayout: '../../client/views/layouts/main',
 	partialsDir: 'client/views/partials',
 }));
+app.set('views', path.join(__dirname, '../client/views'))
 app.set('view engine', 'handlebars');
-// app.set('views', path.join(__dirname, '../client/views'))
+
 
 app.use(express.static('client/public'));
 
