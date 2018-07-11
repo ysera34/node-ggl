@@ -1,11 +1,19 @@
-const express = require('express');
-const router = express.Router();
-const controller = require('../controllers');
+module.exports = (app) => {
+	const controller = require('../controllers');
+	const appdata = require('../data/appdata');
 
-router.get('/', controller.index);
+	app.use(function(req, res, next) {
+		if (!res.locals.partials) res.locals.partials = {};
+		res.locals.partials.menuContext = appdata.getNavMenu();
+		next();
+	});
 
-router.get('/about', controller.about);
+	app.route('/')
+		.get(controller.index);
 
-router.get('/settings', controller.settings);
+	app.route('/about')
+		.get(controller.about);
 
-module.exports = router;
+	app.route('/settings')
+		.get(controller.settings);
+};

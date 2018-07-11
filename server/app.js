@@ -2,16 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const appdata = require('./data/appdata.js');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 // set up handlebars view engine
-
 app.engine('handlebars', exphbs({
 	defaultLayout: '../../client/views/layouts/main',
 	partialsDir: 'client/views/partials',
@@ -19,19 +16,10 @@ app.engine('handlebars', exphbs({
 app.set('views', path.join(__dirname, '../client/views'))
 app.set('view engine', 'handlebars');
 
-
 app.use(express.static('client/public'));
 
-app.use(function(req, res, next) {
-	if (!res.locals.partials) res.locals.partials = {};
-	res.locals.partials.menuContext = appdata.getNavMenu();
-	next();
-});
-
-app.use('/', require('./routes'));
-
-const routes = require('./routes/users');
-routes(app);
+require('./routes')(app);
+require('./routes/users')(app);
 
 app.use(function(req, res) {
 	res.status(404);
