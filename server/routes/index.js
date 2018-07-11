@@ -16,4 +16,10 @@ module.exports = (app) => {
 
 	app.route('/settings')
 		.get(controller.settings);
+
+	app.route('/confirm')
+		.get(controller.confirm);
+
+	app.route('/notice')
+		.get(controller.notice);
 };
