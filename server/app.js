@@ -19,7 +19,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static('client/public'));
 
 require('./routes')(app);
-require('./routes/users')(app);
+require('./routes/members')(app);
 
 app.use(function(req, res) {
 	res.status(404);

@@ -3,8 +3,6 @@
 const app = require('./app');
 const configs = require('./configs');
 
-console.log(configs);
-
 const port = configs.port;
 
 app.listen(port, () => {
