@@ -4,8 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./server/index.js"
+    "start": "pm2 start ./server/index.js --name go2 --interpreter babel-node --watch",
+    "build": "babel ./serve -d ./dist",
+    "serve": "node ./dist/index.js",
+    "monit": "pm2 monit",
+    "logs": "pm2 logs go2",
+    "clear": "pm2 flush",
+    "stop": "pm2 delete go2",
+    "debug": "pm2 start ./server/index.js --name go2 --interpreter babel-node && pm2 logs go2",
+    "test": "mocha --compilers js:babel-register"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +21,7 @@
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "mysql2": "^1.5.3",
+    "pm2": "^3.0.3",
     "sequelize": "^4.38.0"
   },
   "devDependencies": {

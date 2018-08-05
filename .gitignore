@@ -92,6 +92,9 @@ typings/
 # dotenv environment variables file
 .env
 
+#babel build output
+dist
+
 ### Code ###
 # Visual Studio Code - https://code.visualstudio.com/
 .settings/
