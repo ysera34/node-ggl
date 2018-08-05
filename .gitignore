@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/git,node,macos
+# Created by https://www.gitignore.io/api/git,node,macos,code
 
 ### Git ###
 *.orig
@@ -69,6 +69,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+package-lock.json
 
 # Typescript v1 declaration files
 typings/
@@ -91,8 +92,14 @@ typings/
 # dotenv environment variables file
 .env
 
+### Code ###
+# Visual Studio Code - https://code.visualstudio.com/
+.settings/
+.vscode/
+tsconfig.json
+jsconfig.json
 
-# End of https://www.gitignore.io/api/git,node,macos
+# End of https://www.gitignore.io/api/git,node,macos,code
 
 data
 configs
