@@ -32,5 +32,4 @@ app.use(function(err, req, res, next) {
 	res.render('500');
 });
 
-// export default app;
-module.exports = app;
+export default app;

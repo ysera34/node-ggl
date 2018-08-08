@@ -1,34 +1,28 @@
-const Sequelize = require('sequelize');
-const configs = require('../configs');
-const members = require('./members');
+import fs from 'fs'
+import path from 'path'
+import Sequelize from 'sequelize'
+import sequelize from './database'
+const basename = path.basename(__filename)
 
-const database = configs.database;
+const db = {}
 
-const sequelize = new Sequelize({
-  host: database.host,
-  port: database.port,
-  username: database.username,
-  password: database.password,
-  dialect: 'mysql',
-  pool: {
-    max: 20,
-    min: 0,
-    idle: 10000
-  },
-  timezone: '+09:00',
-  query: { raw: true},
-  // hooks: {}
-});
+fs
+  .readdirSync(__dirname)
+  .filter(file => {
+    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js')
+  })
+  .forEach(file => {
+    const model = sequelize.import(path.join(__dirname, file))
+    db[model.name] = model
+  })
 
-const members = sequelize.define(members);
+Object.keys(db).forEach(modelName => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db)
+  }
+})
 
-// members.sync({force: true}).then(() => {
-//   return members.create({{
-//
-//   }})
-// });
+db.sequelize = sequelize
+db.Sequelize = Sequelize
 
-module.export = {
-  sequelize,
-  members,
-};
+export default db
