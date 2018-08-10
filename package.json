@@ -12,7 +12,7 @@
     "clear": "pm2 flush",
     "stop": "pm2 delete go2",
     "debug": "pm2 start ./server/src/index.js --name go2 --interpreter babel-node --watch ./server/src && pm2 logs go2",
-    "test": "mocha --ui tdd --require babel-core/register --recursive ./server/**"
+    "test": "mocha --ui tdd --require babel-core/register --require babel-polyfill --recursive ./server/**"
   },
   "engines": {
     "node": ">=8.0.0"

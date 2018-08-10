@@ -1,7 +1,7 @@
 const env = process.env.NODE_ENV || 'development'
 import Sequelize from 'sequelize'
-import { config } from '../config'
-const dbConfig = config[env]
+import { configs } from './../../configs'
+const dbConfig = configs[env]
 
 const sequelize = new Sequelize(
   dbConfig.database, dbConfig.username, dbConfig.password, dbConfig.options
