@@ -1,25 +1,28 @@
-module.exports = (app) => {
-	const controller = require('../controllers');
-	const appdata = require('../data/appdata');
+import Router from 'express'
+import sequelize from '../models/database'
+import members from './members'
 
-	app.use(function(req, res, next) {
-		if (!res.locals.partials) res.locals.partials = {};
-		res.locals.partials.menuContext = appdata.getNavMenu();
-		next();
-	});
+const router = Router()
 
-	app.route('/')
-		.get(controller.index);
+const healthCheck = async() => {
+	try {
+		await sequelize.authenticate()
+		console.log('db connect success')
+		return true
+	} catch (error) {
+		console.error('db connect fail', error)
+		return false
+	}
+}
 
-	app.route('/about')
-		.get(controller.about);
+router.get('/', async(req, res, next) => {
+	try {
+		const isHealth = await healthCheck()
+		if (!isHealth) throw Error('unHealth server')
+		res.send({ state: 'healthy' })
+	} catch (error) {
+		next(err)
+	}
+})
 
-	app.route('/settings')
-		.get(controller.settings);
-
-	app.route('/confirm')
-		.get(controller.confirm);
-
-	app.route('/notice')
-		.get(controller.notice);
-};
+export default router
