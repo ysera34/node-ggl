@@ -4,6 +4,8 @@ import members from './members'
 
 const router = Router()
 
+router.use('/members', members)
+
 const healthCheck = async() => {
 	try {
 		await sequelize.authenticate()

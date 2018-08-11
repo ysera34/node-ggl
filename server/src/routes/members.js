@@ -1,12 +1,12 @@
-module.exports = (app) => {
-  const members = require('../controllers/members');
+import Router from 'express'
+import members from '../controllers/members'
 
-  app.route('/members')
-    .get(members.getAll)
-    .post(members.add);
+const router = Router()
 
-  app.route('/members/:id')
-    .get(members.get)
-    .put(members.update)
-    .delete(members.remove);
-};
+router
+  .post('/', members.create)
+  .get('/', members.getAll)
+  .get('/:id([0-9]+)', members.get)
+  .put('/:id([0-9]+)', members.update)
+
+export default router
