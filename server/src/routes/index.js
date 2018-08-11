@@ -1,5 +1,5 @@
 import Router from 'express'
-import sequelize from '../models/database'
+import sequelize from '../database'
 import members from './members'
 
 const router = Router()
