@@ -18,16 +18,18 @@ suite('# Model Sync Test', () => {
     if (healthCheck) done()
   })
 
-  test('test :: create table', async (done) => {    
-    const result = await database.members.sync()
-    // done()
-    test('test :: force create table', async (done) => {
-      const result = await database.members.sync({ force: true })
-      // done()
-      // test('test :: drop table', async (done) => {
-      //   const result = await database.members.drop()
-      //   done()
-      // })
-    })
-  })
+  // test('test :: create table', async (done) => {    
+  //   const result = await database.members.sync()
+  //   done()
+  // })
+
+  // test('test :: force create table', async (done) => {
+  //   const result = await database.members.sync({ force: true })
+  //   done()  
+  // })
+
+  // test('test :: drop table', async (done) => {
+  //   const result = await database.members.drop()
+  //   done()
+  // })
 })
