@@ -1,5 +1,5 @@
 import Router from 'express'
-import sequelize from '../database'
+import database from '../database'
 import members from './members'
 
 const router = Router()
@@ -8,11 +8,11 @@ router.use('/members', members)
 
 const healthCheck = async() => {
 	try {
-		await sequelize.authenticate()
-		console.log('db connect success')
+		await database.sequelize.authenticate()
+		console.log('database connect success')
 		return true
 	} catch (error) {
-		console.error('db connect fail', error)
+		console.error('database connect fail', error)
 		return false
 	}
 }

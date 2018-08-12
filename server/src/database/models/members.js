@@ -41,10 +41,12 @@ export default (sequelize, DataTypes) => {
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: 'CURRENT_TIMESTAMP'
     },
     updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: 'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
     }
   }
   const options = {
