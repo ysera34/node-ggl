@@ -18,7 +18,7 @@ export const createCustomTokenAsyncAwait = async (uid) => {
     console.log('customToken', customToken)
     return customToken
   } catch (error) {
-    console.log('Error creating cusotm token: ', error)
+    console.error('Error creating cusotm token: ', error)
     return false
   }
 }

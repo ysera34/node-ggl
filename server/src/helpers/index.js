@@ -1,9 +1,10 @@
-export const asyncWithException = async => {
+export const asyncWithException = asyncFunction => {
   return (req, res, next) => {
-    try {
-      async(req, res, next)
-    } catch(err) {
-      next(err)
-    }
+    // try {
+    //   asyncFunction(req, res, next)
+    // } catch(err) {
+    //   next(err)
+    // }
+    asyncFunction(req, res, next).catch(next)
   }
 }
