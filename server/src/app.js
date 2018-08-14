@@ -6,6 +6,8 @@ import * as admin from 'firebase-admin'
 
 import serviceAccount from './configs/firebase-key.json'
 
+import errorHandler from './middleware/errorHandler'
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: `https://${serviceAccount.project_id}.firebaseio.com`
@@ -17,6 +19,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/v1', router)
+
+app.use(errorHandler)
 
 app.admin = admin
 

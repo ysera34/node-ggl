@@ -105,7 +105,13 @@ jsconfig.json
 ### Firebase ###
 firebase-key.json
 
+### Configs ###
+server/src/configs/credentials.json
+server/src/configs/database.json
+server/src/configs/firebase-key.json
+server/src/configs/index.js
+
 # End of https://www.gitignore.io/api/git,node,macos,code
 
 data
-configs
+
