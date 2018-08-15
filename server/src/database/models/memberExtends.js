@@ -6,36 +6,25 @@ export default (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    email: {
+    memberId: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      field: 'member_id',
+    },
+    job: {
       type: DataTypes.STRING(64),
       allowNull: false,
     },
-    name: {
+    residence: {
       type: DataTypes.STRING(64),
       allowNull: false,
     },
-    gender: {
+    interest: {
       type: DataTypes.STRING(64),
       allowNull: false,
     },
-    phone: {
-      type: DataTypes.STRING(64),
-      allowNull: false,
-    },
-    birth: {
+    channel: {
       type: DataTypes.DATE,
-      allowNull: false,
-    },
-    image_path: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-    },
-    id_image_path: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-    },
-    card_image_path: {
-      type: DataTypes.STRING(255),
       allowNull: false,
     },
     createdAt: {
@@ -52,7 +41,7 @@ export default (sequelize, DataTypes) => {
     }
   }
   const options = {
-    tableName: 'members',
+    tableName: 'member_extends',
   }
-  return sequelize.define('members', attributes, options)
+  return sequelize.define('memberExtends', attributes, options)
 }
