@@ -1,10 +1,14 @@
 import Router from 'express'
 import database from '../database'
 import members from './members'
+import parties from './parties'
+import applications from './applications'
 
 const router = Router()
 
 router.use('/members', members)
+router.use('/parties', parties)
+router.use('/applications', applications)
 
 const healthCheck = async() => {
 	try {
