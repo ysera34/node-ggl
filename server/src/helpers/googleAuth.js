@@ -2,16 +2,16 @@ import { OAuth2Client } from 'google-auth-library'
 import credentials from '../configs/credentials.json'
 const client = new OAuth2Client(credentials.web.client_id)
 
-export const verifyIdToken = async (token) => {
+export const verifyIdToken = async (req, next) => {
   try {
     const ticket = await client.verifyIdToken({
-        idToken: token,
+        idToken: req.body.idToken,
     });
     const payload = ticket.getPayload();
-    // const userid = payload['sub'];
-    return payload['email']
+    console.log('payload', payload)
+    return payload
   } catch (error) {
     console.error('Error verifying id token: ', error)
-    return false
+    next(error)
   }
 }

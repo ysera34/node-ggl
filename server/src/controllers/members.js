@@ -1,5 +1,6 @@
 import { asyncWithException } from '../helpers'
-import { verifyIdToken } from '../helpers/googleAuth'
+import { verifyIdToken as verifyGoogleIdToken } from '../helpers/googleAuth'
+import { signToken, verifyIdToken } from '../helpers/auth'
 import { createCustomTokenAsyncAwait, verifyIdTokenAsyncAwait } from '../helpers/firebaseAdminAuth'
 import path from 'path'
 import models from '../database'
@@ -8,17 +9,23 @@ const members = {}
 
 members.signUp = asyncWithException(async(req, res, next) => {
 
-  const email = await verifyIdToken(req.body.token)
-  // if (!email) {
-  //   res.send
-  // }
+  const payload = await verifyGoogleIdToken(req, next)
+  const member = await models.members.create({
+    email: payload['email'],
+  }).catch(next(error))
 
-  res.send('')
+  const payload = { email: member.email }
+  const authToken = await signToken(payload)
+
+  res.status(201).json({
+    data: {
+      authToken
+    }
+  })
 })
 
-
 members.signIn = asyncWithException(async(req, res, next) => {
-  
+  // auth token validation expire and refresh
 })
 
 members.createFirebaseAdminAuth = asyncWithException(async(req, res, next) => {
