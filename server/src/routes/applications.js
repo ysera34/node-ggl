@@ -4,7 +4,7 @@ import applications from '../controllers/applications'
 const router = Router()
 
 router
-  .post('/', applications.add)
+  .post('/', applications.create)
   .get('/', applications.getAll)
   .get('/:id([0-9]+)', applications.get)
   .put('/:id([0-9]+)', applications.update)
