@@ -40,8 +40,6 @@ export default (sequelize, DataTypes) => {
     price: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
     },
     limit: {
       type: DataTypes.INTEGER(11),
