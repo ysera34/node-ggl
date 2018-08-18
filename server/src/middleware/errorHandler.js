@@ -1,5 +1,5 @@
 export default (err, req, res, next) => {
-  console.error('ErrorHandler', error.stack)
+  console.error('ErrorHandler', err.stack)
 
   const error = {
     code: err.code || err.status || err.customCode || 500,

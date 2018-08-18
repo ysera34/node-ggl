@@ -9,9 +9,9 @@ const members = {}
 
 members.signUp = asyncWithException(async(req, res, next) => {
 
-  const payload = await verifyGoogleIdToken(req, next)
+  const googlePayload = await verifyGoogleIdToken(req, next)
   const member = await models.members.create({
-    email: payload['email'],
+    email: googlePayload['email'],
   }).catch(next(error))
 
   const payload = { email: member.email }

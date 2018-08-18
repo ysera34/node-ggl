@@ -3,7 +3,7 @@ import models from '../database'
 
 const parties = {}
 
-parties.add = asyncWithException(async(req, res, next) => {
+parties.create = asyncWithException(async(req, res, next) => {
   res.send('parties add')
 })
 

@@ -3,7 +3,7 @@ import models from '../database'
 
 const applications = {}
 
-applications.add = asyncWithException(async(req, res, next) => {
+applications.create = asyncWithException(async(req, res, next) => {
   res.send('applications add')
 })
 
