@@ -19,18 +19,17 @@ export default (sequelize, DataTypes) => {
     state: {
       type: DataTypes.ENUM,
       values: ['active', 'pending', 'deletes'],
+      defaultValue: 'pending'
     },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
       field: 'created_at',
-      defaultValue: 'CURRENT_TIMESTAMP'
     },
     updatedAt: {
       type: DataTypes.DATE,
       allowNull: false,
       field: 'updated_at',
-      defaultValue: 'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
     }
   }
   const options = {

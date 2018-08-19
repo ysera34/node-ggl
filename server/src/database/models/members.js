@@ -7,48 +7,49 @@ export default (sequelize, DataTypes) => {
       autoIncrement: true,
     },
     email: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     name: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     gender: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     phone: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     birth: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    image_path: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
+    state: {
+      type: DataTypes.ENUM,
+      values: ['active', 'pending', 'deletes'],
+      defaultValue: 'pending'
     },
-    id_image_path: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
+    imagePath: {
+      type: DataTypes.STRING(500),
+      field: 'image_path',
     },
-    card_image_path: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
+    idImagePath: {
+      type: DataTypes.STRING(500),
+      field: 'id_image_path',
+    },
+    cardImagePath: {
+      type: DataTypes.STRING(500),
+      field: 'card_image_path'
     },
     createdAt: {
       type: DataTypes.DATE,
-      allowNull: false,
       field: 'created_at',
-      defaultValue: 'CURRENT_TIMESTAMP'
     },
     updatedAt: {
       type: DataTypes.DATE,
-      allowNull: false,
       field: 'updated_at',
-      defaultValue: 'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
     }
   }
   const options = {

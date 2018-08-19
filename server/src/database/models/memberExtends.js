@@ -12,32 +12,27 @@ export default (sequelize, DataTypes) => {
       field: 'member_id',
     },
     job: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     residence: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     interest: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     channel: {
       type: DataTypes.DATE,
-      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,
-      allowNull: false,
       field: 'created_at',
-      defaultValue: 'CURRENT_TIMESTAMP'
     },
     updatedAt: {
       type: DataTypes.DATE,
-      allowNull: false,
       field: 'updated_at',
-      defaultValue: 'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
     }
   }
   const options = {
