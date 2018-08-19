@@ -6,6 +6,6 @@ export default (err, req, res, next) => {
     message: err.customMessage || err.message || 'internal error'
   }
 
-  res.json({ error })
+  res.status(error.code).json({ error })
   next(error)
 }

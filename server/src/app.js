@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/v1', router)
 
-app.get('*', (req, res, next) => {
+app.use((req, res, next) => {
   const error = {
     customCode: 404,
     customMessage: 'Not Found'

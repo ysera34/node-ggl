@@ -8,7 +8,7 @@ export default (req, res, next) => {
     jwt.verify(authToken, configs.secret, (err, decoded) => {
       if (err) {
         err.customCode = 401
-        err.customMessage = 'unauthorized'
+        err.customMessage = 'unauthorized, auth token is not valid'
         next(err)
       } else {
         req.decoded = decoded
