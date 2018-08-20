@@ -1,4 +1,4 @@
-import { validationResult } from 'express-validator/check'
+import { param, validationResult } from 'express-validator/check'
 
 export const validatorCallback = (property, req, res, next) => {
   const errors = validationResult(req)
@@ -11,3 +11,13 @@ export const validatorCallback = (property, req, res, next) => {
     next()
   }
 }
+
+export const paramIdValidator = [
+  param('id')
+    .exists().withMessage('id should be required in params')
+    .isNumeric().withMessage('id should be a number')
+    .custom(value => value > 0).withMessage('id is not valid'),
+  (req, res, next) => {
+    validatorCallback('id', req, res, next)
+  }
+]
