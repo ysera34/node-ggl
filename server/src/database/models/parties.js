@@ -6,15 +6,15 @@ export default (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING(64),
-      allowNull: false,
-    },
-    site: {
+    title: {
       type: DataTypes.STRING(64),
       allowNull: false,
     },
     description: {
+      type: DataTypes.STRING(64),
+      allowNull: false,
+    },
+    site: {
       type: DataTypes.STRING(64),
       allowNull: false,
     },

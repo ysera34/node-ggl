@@ -28,7 +28,7 @@ export default (sequelize, DataTypes) => {
     },
     state: {
       type: DataTypes.ENUM,
-      values: ['active', 'pending', 'deletes'],
+      values: ['active', 'pending', 'delete'],
       defaultValue: 'pending'
     },
     imagePath: {

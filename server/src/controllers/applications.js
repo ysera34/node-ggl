@@ -7,15 +7,15 @@ applications.create = asyncWithException(async(req, res, next) => {
   res.send('applications add')
 })
 
-applications.getAll = asyncWithException(async(req, res, net) => {
+applications.getAll = asyncWithException(async(req, res, next) => {
   res.send('applications getAll')
 })
 
-applications.get = asyncWithException(async(req, res, net) => {
+applications.get = asyncWithException(async(req, res, next) => {
   res.send('applications get')
 })
 
-applications.update = asyncWithException(async(req, res, net) => {
+applications.update = asyncWithException(async(req, res, next) => {
   res.send('applications update')
 })
 
