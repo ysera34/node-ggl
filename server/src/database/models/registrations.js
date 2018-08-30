@@ -18,7 +18,7 @@ export default (sequelize, DataTypes) => {
     },
     state: {
       type: DataTypes.ENUM,
-      values: ['active', 'pending', 'deletes'],
+      values: ['active', 'pending', 'cancel'],
       defaultValue: 'pending'
     },
     createdAt: {
@@ -33,7 +33,7 @@ export default (sequelize, DataTypes) => {
     }
   }
   const options = {
-    tableName: 'applications',
+    tableName: 'registrations',
   }
-  return sequelize.define('applications', attributes, options)
+  return sequelize.define('registrations', attributes, options)
 }

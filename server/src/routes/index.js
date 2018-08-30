@@ -2,13 +2,13 @@ import Router from 'express'
 import database from '../database'
 import members from './members'
 import parties from './parties'
-import applications from './applications'
+import registrations from './registrations'
 
 const router = Router()
 
 router.use('/members', members)
 router.use('/parties', parties)
-router.use('/applications', applications)
+router.use('/registrations', registrations)
 
 const healthCheck = async() => {
 	try {
