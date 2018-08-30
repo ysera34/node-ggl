@@ -7,8 +7,8 @@ parties.create = asyncWithException(async(req, res, next) => {
   res.send('parties add')
 })
 
-parties.getAll = asyncWithException(async(req, res, next) => {
-  res.send('parties getAll')
+parties.getList = asyncWithException(async(req, res, next) => {
+  res.send('parties getList')
 })
 
 parties.get = asyncWithException(async(req, res, next) => {

@@ -6,7 +6,7 @@ const router = Router()
 router
   .post('/signup', members.signUp)
   .post('/signin', members.signIn)
-  .get('/', members.getAll)
+  .get('/', members.getList)
   .get('/:id([0-9]+)', members.get)
   .put('/:id([0-9]+)', members.update)
 

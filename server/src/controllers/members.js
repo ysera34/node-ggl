@@ -44,8 +44,8 @@ members.verifyIdToken = asyncWithException(async(req, res, next) => {
   res.json({ email })
 })
 
-members.getAll = asyncWithException(async(req, res, next) => {
-  res.send('hello members getAll')
+members.getList = asyncWithException(async(req, res, next) => {
+  res.send('hello members getList')
   // const attributes = ['id', 'email', 'name']
   // const members = await models.members.findAll({ attributes })
   // res.json(members)

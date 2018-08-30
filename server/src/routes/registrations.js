@@ -5,7 +5,7 @@ const router = Router()
 
 router
   .post('/', registrations.create)
-  .get('/', registrations.getAll)
+  .get('/', registrations.getList)
   .get('/:id([0-9]+)', registrations.get)
   .put('/:id([0-9]+)', registrations.update)
 

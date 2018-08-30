@@ -5,7 +5,7 @@ const router = Router()
 
 router
   .post('/', parties.create)
-  .get('/', parties.getAll)
+  .get('/', parties.getList)
   .get('/:id([0-9]+)', parties.get)
   .put('/:id([0-9]+)', parties.update)
 

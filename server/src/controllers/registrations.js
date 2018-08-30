@@ -7,8 +7,8 @@ registrations.create = asyncWithException(async(req, res, next) => {
   res.send('registrations add')
 })
 
-registrations.getAll = asyncWithException(async(req, res, next) => {
-  res.send('registrations getAll')
+registrations.getList = asyncWithException(async(req, res, next) => {
+  res.send('registrations getList')
 })
 
 registrations.get = asyncWithException(async(req, res, next) => {
