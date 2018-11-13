@@ -6,7 +6,7 @@ export const signUpValidator = [
     .exists().withMessage('idToken should be required')
     .isString().withMessage('idToken should be string')
     .trim(),
-  (res, res, next) => {
+  (req, res, next) => {
     validatorCallback('idToken', req, res, next)
   },
   body('pushToken')
@@ -23,14 +23,14 @@ export const signInValidator = [
     .exists().withMessage('accessToken should be required')
     .isString().withMessage('accessToken should be string')
     .trim(),
-  (res, res, next) => {
+  (req, res, next) => {
     validatorCallback('accessToken', req, res, next)
   },
   body('refreshToken')
     .exists().withMessage('refreshToken should be required')
     .isString().withMessage('refreshToken should be string')
     .trim(),
-  (res, res, next) => {
+  (req, res, next) => {
     validatorCallback('refreshToken', req, res, next)
   },
   body('pushToken')

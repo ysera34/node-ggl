@@ -5,7 +5,7 @@ export const validatorCallback = (property, req, res, next) => {
   if (!errors.isEmpty()) {
     return next({
       customCode: 400,
-      customMessage: errors.mapped()[porperty].msg
+      customMessage: errors.mapped()[property].msg
     })
   } else {
     next()

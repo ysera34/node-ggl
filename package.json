@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "pm2 start ./server/src/index.js --name go2 --interpreter babel-node --watch",
-    "build": "babel ./serve -d ./dist",
-    "serve": "node ./dist/index.js",
+    "build": "babel ./server -d ./server/dist",
+    "serve": "node ./server/dist/index.js",
     "monit": "pm2 monit",
     "logs": "pm2 logs go2",
     "clear": "pm2 flush",
