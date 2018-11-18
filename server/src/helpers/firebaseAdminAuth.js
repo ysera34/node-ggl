@@ -27,7 +27,7 @@ export const verifyIdToken = (idToken) => {
   app.admin.auth().verifyIdToken(idToken)
     .then((decodedToken) => {
       console.log('decodedToken', decodedToken)
-      const uid = decodedToken.uid;
+      const uid = decodedToken.uid
       console.log('uid', uid)
       return uid
     })
@@ -41,7 +41,7 @@ export const verifyIdTokenAsyncAwait = async (idToken) => {
   try {
     const decodedToken = await app.admin.auth().verifyIdToken(idToken)
     console.log('decodedToken', decodedToken)
-    const uid = decodedToken.uid;
+    const uid = decodedToken.uid
     console.log('uid', uid)
     return uid
   } catch (error) {

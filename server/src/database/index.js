@@ -41,14 +41,14 @@ Object.keys(db).forEach(modelName => {
 })
 
 const checkHealthy = async() => {
-	try {
-		await sequelize.authenticate()
-		console.log('database connect success')
-		return true
-	} catch (error) {
-		console.error('database connect fail', error)
-		return false
-	}
+  try {
+    await sequelize.authenticate()
+    console.log('database connect success')
+    return true
+  } catch (error) {
+    console.error('database connect fail', error)
+    return false
+  }
 }
 
 db.sequelize = sequelize

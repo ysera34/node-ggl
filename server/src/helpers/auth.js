@@ -10,7 +10,7 @@ export const signToken = (payload) => {
 }
 
 export const verifyToken = async (authToken) => {
-  const decoded = await jwt.verify(authToken, configs.secret).catch(error)
+  const decoded = await jwt.verify(authToken, configs.secret)
   console.log('decoded', decoded)
   return decoded
 }
