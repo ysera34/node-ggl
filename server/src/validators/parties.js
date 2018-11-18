@@ -1,4 +1,4 @@
-import { body, param } from 'express-validator'
+import { body, param } from 'express-validator/check'
 import { validatorCallback } from './index'
 
 export const createValidator = [

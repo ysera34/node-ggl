@@ -1,8 +1,8 @@
 module.exports = {
   "env": {
     "browser": true,
-    "commonjs": true,
-    "es6": true,
+    // "commonjs": true,
+    // "es6": true,
     "node": true,
     "mocha": true,
   },
@@ -19,7 +19,7 @@ module.exports = {
       "error",
       2,
     ],
-    "no-console": "off",
+    'no-console': "off",
     "linebreak-style": [
       "error",
       "unix",
@@ -31,6 +31,10 @@ module.exports = {
     "semi": [
       "error",
       "never",
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always",
     ],
   },
 };

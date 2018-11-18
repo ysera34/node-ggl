@@ -9,13 +9,13 @@ import faqs from './faqs'
 const router = Router()
 
 router.get('/', async(req, res, next) => {
-	try {
-		const isHealth = await database.checkHealthy()
-		if (!isHealth) throw Error('unHealth server')
-		res.send({ state: 'healthy' })
-	} catch (error) {
-		next(error)
-	}
+  try {
+    const isHealth = await database.checkHealthy()
+    if (!isHealth) throw Error('unHealth server')
+    res.send({ state: 'healthy' })
+  } catch (error) {
+    next(error)
+  }
 })
 
 router.use('/members', members)

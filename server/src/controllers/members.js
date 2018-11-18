@@ -1,6 +1,6 @@
 import { asyncWithException } from '../helpers'
 import { verifyIdToken as verifyGoogleIdToken } from '../helpers/googleAuth'
-import { signToken, verifyIdToken } from '../helpers/auth'
+import { signToken, verifyToken } from '../helpers/auth'
 import { createCustomTokenAsyncAwait, verifyIdTokenAsyncAwait } from '../helpers/firebaseAdminAuth'
 import path from 'path'
 import models from '../database'
